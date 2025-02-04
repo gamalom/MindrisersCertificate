@@ -4,6 +4,7 @@ const app = express();
 
 //ROUTES HERE
 const authRoute = require("./routes/authRoute");
+const productRoute = require("./routes/productRoute");
 
 //ROUTES END
 const {
@@ -27,8 +28,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("", authRoute);
-app.use("", loginUser);
+app.use("/api", authRoute);
+app.use("/api", productRoute);
 
 //server is running
 const PORT = process.env.PORT;
