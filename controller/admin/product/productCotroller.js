@@ -1,6 +1,14 @@
 const Product = require("../../../model/productModel");
 
 exports.createProduct = async (req, res) => {
+  const file = req.file;
+  let filePath;
+  if (!file) {
+    filePath = "";
+  } else {
+    filePath = req.file.filename;
+  }
+
   const {
     productName,
     productDescription,
@@ -28,6 +36,7 @@ exports.createProduct = async (req, res) => {
     productDescription,
     productStatus,
     productStockQty,
+    productImage: "http://localhost:3000/" + filePath,
   });
   res.status(200).json({
     message: "Product table is created successfully",

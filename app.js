@@ -18,6 +18,8 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//TELLING NODE TO GIVE ACESS TO THE UPLOAD FILE
+app.use(express.static("./uploads"));
 //connect database
 connectDatabase(process.env.MONGO_URL);
 
