@@ -44,43 +44,6 @@ exports.createProduct = async (req, res) => {
   });
 };
 
-exports.getProducts = async (req, res) => {
-  const products = await Product.find();
-  if (products.length == 0) {
-    res.status(400).json({
-      message: "No product found",
-      products: [],
-    });
-  } else {
-    res.status(200).json({
-      message: "Products Found",
-      products,
-    });
-  }
-};
-
-exports.getProduct = async (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    return res.status(400).json({
-      message: "Please provide id(ProductID)",
-    });
-  }
-
-  const product = await Product.find({ _id: id });
-
-  if (product.length == 0) {
-    return res.status(400).json({
-      message: "No product found with that id",
-      product: [],
-    });
-  } else {
-    res.status(200).json({
-      message: "Product fetch sucessfully",
-      product,
-    });
-  }
-};
 
 exports.deleteProduct = async (req, res) => {
   const { id } = req.params;
