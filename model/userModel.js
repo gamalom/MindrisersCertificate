@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "password must be provided"],
       minlegth: 8,
-      select: false,
+      // select: false,
     },
     userName: {
       type: String,
