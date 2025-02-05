@@ -5,13 +5,14 @@ const app = express();
 //ROUTES HERE
 const authRoute = require("./routes/authRoute");
 const productRoute = require("./routes/productRoute");
+const adminUsersRoute = require("./routes/adminUsersRoutes");
 
 //ROUTES END
 const {
   registerUser,
   login,
   loginUser,
-} = require("./controller/auth/authConroller");
+} = require("./controller/auth/authController");
 //tell node to use dotenv
 require("dotenv").config();
 
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", authRoute);
 app.use("/api", productRoute);
+app.use("/api", adminUsersRoute);
 
 //server is running
 const PORT = process.env.PORT;

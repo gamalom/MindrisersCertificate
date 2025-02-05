@@ -15,6 +15,8 @@ const userSchema = new Schema(
     userPassword: {
       type: String,
       required: [true, "password must be provided"],
+      minlegth: 8,
+      select: false,
     },
     userName: {
       type: String,
@@ -27,10 +29,12 @@ const userSchema = new Schema(
     },
     otp: {
       type: Number,
+      select: false,
     },
     isOtpVerified: {
       type: Boolean,
       default: false,
+      select: false,
     },
   },
   {
