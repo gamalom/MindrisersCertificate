@@ -9,6 +9,8 @@ const adminUsersRoute = require("./routes/admin/adminUsersRoutes");
 const userReviewRoute = require("./routes/user/userReviewRoute");
 const profileRoute = require("./routes/user/profileRoutes");
 const cartRoute = require("./routes/user/cartRoutes");
+const orderRoute = require("./routes/user/orderRoutes");
+const adminOrderRoute = require("./routes/admin/adminOrderRoutes");
 
 //ROUTES END
 
@@ -33,9 +35,11 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 app.use("/api/admin", adminUsersRoute);
+app.use("/api/admin", adminOrderRoute);
 app.use("/api/reviews", userReviewRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/cart", cartRoute);
+app.use("/api/orders", orderRoute);
 
 //server is running
 const PORT = process.env.PORT;
